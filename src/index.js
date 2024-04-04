@@ -1,4 +1,4 @@
-class Grafo {
+class Graph {
   constructor(vertices) {
     this.vertices = vertices;
     this.adjacencyList = new Map();
@@ -43,7 +43,7 @@ class Grafo {
 }
 
 const input = ["1", "2", "3", "4", "5", "6"];
-const graph = new Grafo(input);
+const graph = new Graph(input);
 
 //Not Eulerian
 /* graph.addValues("1", "2");
