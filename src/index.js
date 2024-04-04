@@ -1,38 +1,40 @@
 class Grafo {
   constructor(vertices) {
     this.vertices = vertices;
-    this.adcList = new Map();
+    this.adjacencyList = new Map();
 
     for (let i = 0; i < vertices.length; i++) {
-      this.adcList.set(vertices[i], []);
+      this.adjacencyList.set(vertices[i], []);
     }
   }
 
   addValues(origin, end) {
-    this.adcList.get(origin).push(end);
-    this.adcList.get(end).push(origin);
+    const originAdjacencyList = this.adjacencyList.get(origin);
+    originAdjacencyList.push(end);
+    const endAdjacencyList = this.adjacencyList.get(end);
+    endAdjacencyList.push(origin);
   }
 
-  verifyPar() {
+  verifyPair() {
     for (let i = 0; i < this.vertices.length; i++) {
       const vertice = this.vertices[i];
-      if (this.adcList.get(vertice).length % 2 !== 0) {
+      if (this.adjacencyList.get(vertice).length % 2 !== 0) {
         return false;
       }
     }
     return true;
   }
 
-  grau(vertice) {
-    return this.adcList.get(vertice).length;
+  grade(vertice) {
+    return this.adjacencyList.get(vertice).length;
   }
 
-  verifyEuleriano() {
-    if (!this.verifyPar()) {
+  isEulerian() {
+    if (!this.verifyPair()) {
       return false;
     }
     for (let i = 0; i < this.vertices.length; i++) {
-      if (this.grau(this.vertices[i]) === 0) {
+      if (this.grade(this.vertices[i]) === 0) {
         return false;
       }
     }
@@ -40,15 +42,15 @@ class Grafo {
   }
 }
 
-const input = ["1", "2", "3", "4", "5"];
-const grafo = new Grafo(input);
+const input = ["1", "2", "3", "4", "5", "6"];
+const graph = new Grafo(input);
 
 //Not Eulerian
-graph.addValues("1", "2");
+/* graph.addValues("1", "2");
 graph.addValues("1", "3");
 graph.addValues("2", "3");
 graph.addValues("3", "4");
-graph.addValues("4", "5");
+graph.addValues("4", "5"); */
 
 //Euelerian
 graph.addValues("1", "2");
@@ -57,6 +59,7 @@ graph.addValues("3", "4");
 graph.addValues("4", "5");
 graph.addValues("5", "6");
 graph.addValues("6", "1");
+console.log("element: ", element);
 
 const isEulerian = graph.isEulerian();
 
