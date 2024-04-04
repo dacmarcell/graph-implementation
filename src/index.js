@@ -50,7 +50,13 @@ graph.addValues("2", "3");
 graph.addValues("3", "4");
 graph.addValues("4", "5");
 
-if (grafo.verifyEuleriano()) {
+//Euelerian
+graph.addValues("1", "2");
+graph.addValues("2", "3");
+graph.addValues("3", "4");
+graph.addValues("4", "5");
+graph.addValues("5", "6");
+graph.addValues("6", "1");
   console.log("O grafo é euleriano.");
 } else {
   console.log("O grafo não é euleriano.");
