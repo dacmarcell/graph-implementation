@@ -15,7 +15,7 @@ class Grafo {
     endAdjacencyList.push(origin);
   }
 
-  verifyPair() {
+  isPair() {
     for (let i = 0; i < this.vertices.length; i++) {
       const vertice = this.vertices[i];
       if (this.adjacencyList.get(vertice).length % 2 !== 0) {
@@ -30,7 +30,7 @@ class Grafo {
   }
 
   isEulerian() {
-    if (!this.verifyPair()) {
+    if (!this.isPair()) {
       return false;
     }
     for (let i = 0; i < this.vertices.length; i++) {
@@ -59,7 +59,6 @@ graph.addValues("3", "4");
 graph.addValues("4", "5");
 graph.addValues("5", "6");
 graph.addValues("6", "1");
-console.log("element: ", element);
 
 const isEulerian = graph.isEulerian();
 
