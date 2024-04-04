@@ -57,6 +57,10 @@ graph.addValues("3", "4");
 graph.addValues("4", "5");
 graph.addValues("5", "6");
 graph.addValues("6", "1");
+
+const isEulerian = graph.isEulerian();
+
+if (isEulerian) {
   console.log("O grafo é euleriano.");
 } else {
   console.log("O grafo não é euleriano.");
