@@ -43,11 +43,12 @@ class Grafo {
 const input = ["1", "2", "3", "4", "5"];
 const grafo = new Grafo(input);
 
-grafo.addValues("1", "2");
-grafo.addValues("1", "3");
-grafo.addValues("2", "3");
-grafo.addValues("3", "4");
-grafo.addValues("4", "5");
+//Not Eulerian
+graph.addValues("1", "2");
+graph.addValues("1", "3");
+graph.addValues("2", "3");
+graph.addValues("3", "4");
+graph.addValues("4", "5");
 
 if (grafo.verifyEuleriano()) {
   console.log("O grafo é euleriano.");
